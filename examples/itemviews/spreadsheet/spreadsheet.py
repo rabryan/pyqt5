@@ -188,7 +188,7 @@ class SpreadSheet(QMainWindow):
         pixmap = QPixmap(16, 16)
         color = QColor()
         if item:
-            color = item.backgroundColor()
+            brush = item.background().color()
         if not color.isValid():
             color = self.palette().base().color()
         painter = QPainter(pixmap)
@@ -461,7 +461,7 @@ class SpreadSheet(QMainWindow):
         self.table.item(9, 2).setBackground(Qt.lightGray)
         # column 3
         self.table.setItem(0, 3, SpreadSheetItem("Currency"))
-        self.table.item(0, 3).setBackgroundColor(titleBackground)
+        self.table.item(0, 3).setBackground(titleBackground)
         self.table.item(0, 3).setToolTip("This column shows the currency")
         self.table.item(0, 3).setFont(titleFont)
         self.table.setItem(1, 3, SpreadSheetItem("NOK"))
